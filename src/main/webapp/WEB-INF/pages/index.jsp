@@ -1,5 +1,5 @@
 <html>
 <body>
-	<h1>Welcome ${person.name} ${person.surname}</h1>
+	<h1>Welcome page</h1>
 </body>
 </html>
