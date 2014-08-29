@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: Daniel
@@ -26,6 +28,9 @@ public class Person {
     private String email;
 
     private int discount;
+
+    @OneToMany(mappedBy = "person")
+    private List<Message> message = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "team_id")
@@ -79,6 +84,14 @@ public class Person {
         this.team = team;
     }
 
+    public List<Message> getMessage() {
+        return message;
+    }
+
+    public void setMessage(List<Message> message) {
+        this.message = message;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Person{");
@@ -87,6 +100,7 @@ public class Person {
         sb.append(", surname='").append(surname).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", discount=").append(discount);
+        sb.append(", message=").append(message);
         sb.append(", team=").append(team);
         sb.append('}');
         return sb.toString();

@@ -11,13 +11,7 @@ import pl.alkom.spring.model.Person;
 public class IndexController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(Model model) {
-
-        Person person = new Person();
-        person.setName("Katarzyna");
-        person.setSurname("Góralczyk");
-
-        model.addAttribute("person", person);
+	public String printWelcome() {
 		return "index";
 	}
 }

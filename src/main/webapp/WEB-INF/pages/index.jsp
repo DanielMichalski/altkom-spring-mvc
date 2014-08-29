@@ -1,5 +1,12 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Strona główna</title>
+    </head>
+
 <body>
-	<h1>Welcome ${person.name} ${person.surname}</h1>
+    <a href="${pageContext.request.contextPath}/person/add">Rejestracja</a>
 </body>
 </html>

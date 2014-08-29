@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.alkom.spring.model.Person;
 import pl.alkom.spring.repositories.PersonRepository;
 import pl.alkom.spring.repositories.TeamRepository;
@@ -59,4 +56,11 @@ public class PersonController {
 
         return "add";
     }
+
+    @RequestMapping("/messages/{personId}")
+    public String showMessages(@PathVariable Long personId, Model model) {
+        model.addAttribute("person", personRepository.findOne(personId));
+        return "message_list";
+    }
+
 }
