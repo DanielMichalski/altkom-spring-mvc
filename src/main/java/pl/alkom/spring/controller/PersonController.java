@@ -32,8 +32,9 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String savePerson(@Valid Person person, BindingResult bindingResult) {
+    public String savePerson(@Valid Person person, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("teams", teamRepository.findAll());
             return "add";
         }
         personRepository.save(person);
