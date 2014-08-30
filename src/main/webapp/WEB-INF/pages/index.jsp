@@ -7,6 +7,7 @@
     </head>
 
 <body>
+    <a href="${pageContext.request.contextPath}/person/list">Lista osób</a> <br/>
     <a href="${pageContext.request.contextPath}/person/add">Rejestracja</a>
 </body>
 </html>

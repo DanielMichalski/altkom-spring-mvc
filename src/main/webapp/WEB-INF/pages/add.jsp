@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css"/>
     <title>Add</title>
 </head>
 

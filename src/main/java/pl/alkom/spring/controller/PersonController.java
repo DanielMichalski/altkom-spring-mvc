@@ -57,10 +57,17 @@ public class PersonController {
         return "add";
     }
 
-    @RequestMapping("/messages/{personId}")
-    public String showMessages(@PathVariable Long personId, Model model) {
+    @RequestMapping("/messages")
+    public String showMessages(Long personId, Model model) {
         model.addAttribute("person", personRepository.findOne(personId));
         return "message_list";
+    }
+
+    @RequestMapping("/search")
+    public String search(String name, Model model) {
+        Iterable<Person> peoples = personRepository.findByNameUsingJPQL(name);
+        model.addAttribute("peoples", peoples);
+        return "personList";
     }
 
 }

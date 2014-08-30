@@ -29,8 +29,8 @@ public class Person {
 
     private int discount;
 
-    @OneToMany(mappedBy = "person")
-    private List<Message> message = new ArrayList<>();
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+    private List<Message> messages = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "team_id")
@@ -84,12 +84,12 @@ public class Person {
         this.team = team;
     }
 
-    public List<Message> getMessage() {
-        return message;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setMessage(List<Message> message) {
-        this.message = message;
+    public void setMessages(List<Message> message) {
+        this.messages = message;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class Person {
         sb.append(", surname='").append(surname).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", discount=").append(discount);
-        sb.append(", message=").append(message);
+        sb.append(", message=").append(messages);
         sb.append(", team=").append(team);
         sb.append('}');
         return sb.toString();
